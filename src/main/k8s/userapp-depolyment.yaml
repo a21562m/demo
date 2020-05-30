@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userapp-depolyment
+  labels:
+    app: userapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: userapp
+  template:
+    metadata:
+      labels:
+        app: userapp
+    spec:
+      containers:
+      - name: userapp
+        image: a21562m/test:userappv1
+        ports:
+        - containerPort: 2020
