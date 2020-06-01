@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.domain.AppUser;
-import com.example.demo.exception.NotFoundException;
 import com.example.demo.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
@@ -37,7 +36,7 @@ public class UserController {
     @ApiOperation(value="getUser", notes="Get user by id.")
     @GetMapping(value = "/users/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Object getUser(@PathVariable("id") String id) throws NotFoundException
+    public Object getUser(@PathVariable("id") String id)
     {
         return userService.getUser(id);
     }
